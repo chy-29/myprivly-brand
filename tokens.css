@@ -1,0 +1,125 @@
+/* ==========================================================================
+   MyPrivly design tokens
+   Shared by every app under myprivly.com. Components use the semantic names
+   (bg, surface, ink, accent...) so light and dark swap by changing values only.
+   Theme = system by default; data-theme="light|dark" on <html> overrides it.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* surfaces: soft lavender-mist backdrop, white cards. Tone, not shadow, separates them. */
+  --bg: #f6f5fb;          /* app background: mist */
+  --surface: #ffffff;     /* cards and sheets: white */
+  --surface-2: #efedf8;   /* inset fields, grouped rows */
+  --line: rgba(30, 20, 70, 0.11);
+
+  /* text: deep indigo ink, never pure black */
+  --ink: #14112a;
+  --ink-2: #4a4766;
+  --ink-3: #625f7e;       /* hints; 4.5:1 on white and on mist */
+
+  /* brand + status */
+  --accent: #5b3df5;      /* violet (from the MyPrivly mark) */
+  --accent-press: #4a2fd6;
+  --on-accent: #ffffff;
+  --accent-soft: #e9e5ff;
+  --accent-ink: #3b27b8;
+  --success: #2f7d4f;
+  --success-soft: #e3f2e9;
+  --warning-ink: #7a5200;
+  --warning-soft: #fff1cf;
+  --danger: #b3261e;
+  --danger-soft: #fdeceb;
+
+  /* depth: only things that float (nav, sheets, toasts) cast a real shadow */
+  --shadow-paper: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 1px 2px rgba(20, 17, 42, 0.05);
+  --shadow-card: 0 1px 2px rgba(20, 17, 42, 0.06), 0 8px 24px rgba(20, 17, 42, 0.07);
+  --shadow-sheet: 0 -8px 40px rgba(20, 17, 42, 0.2);
+  --scrim: rgba(10, 8, 30, 0.5);
+  --bar-bg: rgba(246, 245, 251, 0.82); /* translucent nav bars */
+  /* frosted glass (floating surfaces) and the soft page backdrop */
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --notice-bg: linear-gradient(135deg, #fdebd0 0%, #fbdab0 100%);
+  --page-from: #f8f7fd;
+  --page-to: #ece9f8;
+  --glow-1: rgba(150, 130, 255, 0.35);
+  --glow-2: rgba(190, 150, 255, 0.2);
+  --nav-glow: rgba(109, 74, 255, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0a0818;
+    --surface: #14112a;
+    --surface-2: #1c1838;
+    --line: rgba(230, 226, 255, 0.12);
+    --ink: #efedff;
+    --ink-2: #b3afd1;
+    --ink-3: #9591b8;
+    --accent: #8b7bff;
+    --accent-press: #a094ff;
+    --on-accent: #0b0824;
+    --accent-soft: #221c52;
+    --accent-ink: #c0b7ff;
+    --success: #6cc18a;
+    --success-soft: #1b3326;
+    --warning-ink: #f1c76a;
+    --warning-soft: #3a2f12;
+    --danger: #f2877f;
+    --danger-soft: #3b1f1d;
+    --shadow-paper: 0 0 0 1px rgba(230, 226, 255, 0.05);
+    --shadow-card: 0 0 0 1px rgba(230, 226, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-sheet: 0 -8px 40px rgba(0, 0, 0, 0.6);
+    --scrim: rgba(0, 0, 0, 0.6);
+    --bar-bg: rgba(10, 8, 24, 0.82);
+    --glass: rgba(28, 24, 56, 0.66);
+    --glass-border: rgba(230, 226, 255, 0.1);
+    --notice-bg: linear-gradient(135deg, #45341a 0%, #3a2b14 100%);
+    --page-from: #0d0a20;
+    --page-to: #07050f;
+    --glow-1: rgba(110, 80, 255, 0.28);
+    --glow-2: rgba(150, 60, 255, 0.14);
+    --nav-glow: rgba(139, 123, 255, 0.4);
+  }
+}
+
+/* Not :root-only, so a single section (e.g. the design preview) can be forced dark. */
+[data-theme="dark"] {
+  background: var(--bg);
+  color: var(--ink);
+  color-scheme: dark;
+  --bg: #0a0818;
+  --surface: #14112a;
+  --surface-2: #1c1838;
+  --line: rgba(230, 226, 255, 0.12);
+  --ink: #efedff;
+  --ink-2: #b3afd1;
+  --ink-3: #9591b8;
+  --accent: #8b7bff;
+  --accent-press: #a094ff;
+  --on-accent: #0b0824;
+  --accent-soft: #221c52;
+  --accent-ink: #c0b7ff;
+  --success: #6cc18a;
+  --success-soft: #1b3326;
+  --warning-ink: #f1c76a;
+  --warning-soft: #3a2f12;
+  --danger: #f2877f;
+  --danger-soft: #3b1f1d;
+  --shadow-paper: 0 0 0 1px rgba(230, 226, 255, 0.05);
+  --shadow-card: 0 0 0 1px rgba(230, 226, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-sheet: 0 -8px 40px rgba(0, 0, 0, 0.6);
+  --scrim: rgba(0, 0, 0, 0.6);
+  --bar-bg: rgba(10, 8, 24, 0.82);
+  --glass: rgba(28, 24, 56, 0.66);
+  --glass-border: rgba(230, 226, 255, 0.1);
+  --notice-bg: linear-gradient(135deg, #45341a 0%, #3a2b14 100%);
+  --page-from: #0d0a20;
+  --page-to: #07050f;
+  --glow-1: rgba(110, 80, 255, 0.28);
+  --glow-2: rgba(150, 60, 255, 0.14);
+  --nav-glow: rgba(139, 123, 255, 0.4);
+}

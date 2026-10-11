@@ -1,0 +1,20 @@
+{
+  "name": "@myprivly/brand",
+  "version": "1.0.0",
+  "description": "Shared design tokens, logo, icon generator and app registry for the apps under myprivly.com",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": false,
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./logo/*": "./logo/*",
+    "./apps": { "types": "./apps.d.ts", "default": "./apps.js" },
+    "./prefs": { "types": "./prefs.d.ts", "default": "./prefs.js" },
+    "./package.json": "./package.json"
+  },
+  "files": ["tokens.css", "logo", "apps.js", "apps.d.ts", "prefs.js", "prefs.d.ts", "scripts", "README.md", "CHECKLIST.md"],
+  "bin": { "myprivly-make-icons": "./scripts/make-icons.mjs" },
+  "scripts": { "test": "node --test" },
+  "peerDependencies": { "@playwright/test": ">=1.40" },
+  "peerDependenciesMeta": { "@playwright/test": { "optional": true } }
+}
