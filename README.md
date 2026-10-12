@@ -8,6 +8,7 @@ Shared brand pieces for the apps under **myprivly.com**: design tokens, the logo
 | `logo/mark.svg` | The violet hexagon "P", transparent background. `mark-mono.svg` uses `currentColor`. `app-icon.svg` / `app-icon-512.png` are the mark on the dark violet icon background. |
 | `apps.js` | The list of apps (`APPS`), `COOKIE_DOMAIN` and `HUB_URL`. The hub cards and each app's app switcher read it. |
 | `prefs.js` | Theme and font stored in a cookie on `.myprivly.com` so they carry across apps, plus `themeInitScript()` for `<head>`. |
+| `auth.js` | `sharedCookieOptions(hostname)`: the Supabase `cookieOptions` that make one sign-in work on every subdomain (empty on localhost and preview URLs). |
 | `scripts/make-icons.mjs` | `npx myprivly-make-icons` writes PWA, favicon and apple icons from the mark. |
 | `CHECKLIST.md` | Everything to do when adding a new app. |
 
